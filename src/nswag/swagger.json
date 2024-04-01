@@ -1,0 +1,3396 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "sakeny",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/authentication/authenticate": {
+        "post": {
+          "tags": [
+            "Authentication"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationRequestBody"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "text/xml": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/chats": {
+        "get": {
+          "tags": [
+            "Chat"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Chat"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postId}/features": {
+        "get": {
+          "tags": [
+            "Features"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Features"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postId}/features/{featureId}": {
+        "get": {
+          "tags": [
+            "Features"
+          ],
+          "operationId": "GetFeature",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "featureId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Features"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "featureId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureForUpdateDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "Features"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "featureId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Features"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "featureId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/notifications": {
+        "get": {
+          "tags": [
+            "Notifications"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Notifications"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/notifications/{notificationId}": {
+        "get": {
+          "tags": [
+            "Notifications"
+          ],
+          "operationId": "GetNotification",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "notificationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Notifications"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "notificationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationForUpdateDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Notifications"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "notificationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/posts/{postid}/pictures": {
+        "get": {
+          "tags": [
+            "Picutres"
+          ],
+          "operationId": "GetPictures",
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Picutres"
+          ],
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Images": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "binary"
+                      }
+                    }
+                  }
+                },
+                "encoding": {
+                  "Images": {
+                    "style": "form"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/posts/{postid}/pictures/{picId}": {
+        "get": {
+          "tags": [
+            "Picutres"
+          ],
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "picId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Picutres"
+          ],
+          "parameters": [
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "picId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts": {
+        "get": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postId}": {
+        "get": {
+          "tags": [
+            "Post"
+          ],
+          "operationId": "GetPost",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}": {
+        "put": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostForUpdateDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}/statues": {
+        "patch": {
+          "tags": [
+            "Post"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/postfavouriate": {
+        "get": {
+          "tags": [
+            "PostFavouriate"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}/postfavouriate": {
+        "get": {
+          "tags": [
+            "PostFavouriate"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "PostFavouriate"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "PostFavouriate"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}/postfeedbacks": {
+        "get": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}/postfeedbacks/{feedbackid}": {
+        "get": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "operationId": "GetPostFeedback",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "feedbackId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "feedbackId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFeedbackForUpdateDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/posts/{postid}/postfeedbacks/{feedbackId}": {
+        "patch": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "feedbackId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "PostFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "postId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "feedbackId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/user/userfeedbacks": {
+        "get": {
+          "tags": [
+            "UserFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}/userfeedback": {
+        "post": {
+          "tags": [
+            "UserFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "UserFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFeedbackDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "UserFeedback"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "SearchQuery",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserForReturnDto"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserForReturnDto"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserForReturnDto"
+                  }
+                },
+                "application/xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserForReturnDto"
+                  }
+                },
+                "text/xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserForReturnDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForCreationDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{id}": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "operationId": "GetUser",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "includePostFeedbacks",
+              "in": "query",
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/{userid}": {
+        "put": {
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserForUpdateDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              },
+              "application/*+xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Operation"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "userid",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AuthenticationRequestBody": {
+          "type": "object",
+          "properties": {
+            "userName": {
+              "type": "string",
+              "nullable": true
+            },
+            "userMail": {
+              "type": "string",
+              "nullable": true
+            },
+            "password": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "FeatureForCreationDto": {
+          "type": "object",
+          "properties": {
+            "featuresName": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "FeatureForUpdateDto": {
+          "type": "object",
+          "properties": {
+            "featuresName": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "MessageForCreationDto": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "NotificationForCreationDto": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "NotificationForUpdateDto": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "NotificationTbl": {
+          "required": [
+            "notificationId"
+          ],
+          "type": "object",
+          "properties": {
+            "notificationId": {
+              "type": "number",
+              "format": "double"
+            },
+            "userId": {
+              "type": "number",
+              "format": "double"
+            },
+            "user": {
+              "$ref": "#/components/schemas/UsersTbl"
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Operation": {
+          "type": "object",
+          "properties": {
+            "operationType": {
+              "$ref": "#/components/schemas/OperationType"
+            },
+            "path": {
+              "type": "string",
+              "nullable": true
+            },
+            "op": {
+              "type": "string",
+              "nullable": true
+            },
+            "from": {
+              "type": "string",
+              "nullable": true
+            },
+            "value": {
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "OperationType": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "type": "integer",
+          "format": "int32"
+        },
+        "PostFaviourateTbl": {
+          "type": "object",
+          "properties": {
+            "postFavId": {
+              "type": "number",
+              "format": "double"
+            },
+            "postId": {
+              "type": "number",
+              "format": "double"
+            },
+            "post": {
+              "$ref": "#/components/schemas/PostsTbl"
+            },
+            "userId": {
+              "type": "number",
+              "format": "double"
+            },
+            "user": {
+              "$ref": "#/components/schemas/UsersTbl"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostFeedbackForCreationDto": {
+          "type": "object",
+          "properties": {
+            "postFeedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postFeedTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postFeedText": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostFeedbackForUpdateDto": {
+          "type": "object",
+          "properties": {
+            "postFeedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postFeedTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postFeedText": {
+              "type": "string",
+              "nullable": true
+            },
+            "userId": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostFeedbackTbl": {
+          "type": "object",
+          "properties": {
+            "postFeedId": {
+              "type": "number",
+              "format": "double"
+            },
+            "postFeedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postFeedTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postFeedText": {
+              "type": "string",
+              "nullable": true
+            },
+            "postId": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "userId": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "post": {
+              "$ref": "#/components/schemas/PostsTbl"
+            },
+            "user": {
+              "$ref": "#/components/schemas/UsersTbl"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostForCreationDto": {
+          "type": "object",
+          "properties": {
+            "postDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postCategory": {
+              "type": "string",
+              "nullable": true
+            },
+            "postTitle": {
+              "type": "string",
+              "nullable": true
+            },
+            "postBody": {
+              "type": "string",
+              "nullable": true
+            },
+            "postArea": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postKitchens": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBedrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBathrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLookSea": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postPetsAllow": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postCurrency": {
+              "type": "string",
+              "nullable": true
+            },
+            "postPriceAi": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceDisplay": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceType": {
+              "type": "string",
+              "nullable": true
+            },
+            "postAddress": {
+              "type": "string",
+              "nullable": true
+            },
+            "postCity": {
+              "type": "string",
+              "nullable": true
+            },
+            "postState": {
+              "type": "string",
+              "nullable": true
+            },
+            "postFloor": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLatitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postLongitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postStatue": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postUserId": {
+              "type": "number",
+              "format": "double"
+            },
+            "postPicTbls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostPicTbl"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostForUpdateDto": {
+          "type": "object",
+          "properties": {
+            "postDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postCategory": {
+              "type": "string",
+              "nullable": true
+            },
+            "postTitle": {
+              "type": "string",
+              "nullable": true
+            },
+            "postBody": {
+              "type": "string",
+              "nullable": true
+            },
+            "postArea": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postKitchens": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBedrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBathrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLookSea": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postPetsAllow": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postCurrency": {
+              "type": "string",
+              "nullable": true
+            },
+            "postPriceAi": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceDisplay": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceType": {
+              "type": "string",
+              "nullable": true
+            },
+            "postAddress": {
+              "type": "string",
+              "nullable": true
+            },
+            "postCity": {
+              "type": "string",
+              "nullable": true
+            },
+            "postState": {
+              "type": "string",
+              "nullable": true
+            },
+            "postFloor": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLatitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postLongitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postStatue": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postPicTbls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostPicTbl"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostPicTbl": {
+          "type": "object",
+          "properties": {
+            "postPicId": {
+              "type": "number",
+              "format": "double"
+            },
+            "postId": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "picture": {
+              "type": "string",
+              "format": "byte",
+              "nullable": true
+            },
+            "post": {
+              "$ref": "#/components/schemas/PostsTbl"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PostsTbl": {
+          "type": "object",
+          "properties": {
+            "postId": {
+              "type": "number",
+              "format": "double"
+            },
+            "postDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "postTime": {
+              "$ref": "#/components/schemas/TimeSpan"
+            },
+            "postCategory": {
+              "type": "string",
+              "nullable": true
+            },
+            "postTitle": {
+              "type": "string",
+              "nullable": true
+            },
+            "postBody": {
+              "type": "string",
+              "nullable": true
+            },
+            "postArea": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postKitchens": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBedrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postBathrooms": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLookSea": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postPetsAllow": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postCurrency": {
+              "type": "string",
+              "nullable": true
+            },
+            "postPriceAi": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceDisplay": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "postPriceType": {
+              "type": "string",
+              "nullable": true
+            },
+            "postAddress": {
+              "type": "string",
+              "nullable": true
+            },
+            "postCity": {
+              "type": "string",
+              "nullable": true
+            },
+            "postState": {
+              "type": "string",
+              "nullable": true
+            },
+            "postFloor": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "postLatitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postLongitude": {
+              "type": "string",
+              "nullable": true
+            },
+            "postStatue": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "postFeedbackTbls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostFeedbackTbl"
+              },
+              "nullable": true
+            },
+            "postPicTbls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostPicTbl"
+              },
+              "nullable": true
+            },
+            "postUserId": {
+              "type": "number",
+              "format": "double"
+            },
+            "user": {
+              "$ref": "#/components/schemas/UsersTbl"
+            }
+          },
+          "additionalProperties": false
+        },
+        "TimeSpan": {
+          "type": "object",
+          "properties": {
+            "ticks": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "days": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "hours": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "milliseconds": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "minutes": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "seconds": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "totalDays": {
+              "type": "number",
+              "format": "double",
+              "readOnly": true
+            },
+            "totalHours": {
+              "type": "number",
+              "format": "double",
+              "readOnly": true
+            },
+            "totalMilliseconds": {
+              "type": "number",
+              "format": "double",
+              "readOnly": true
+            },
+            "totalMinutes": {
+              "type": "number",
+              "format": "double",
+              "readOnly": true
+            },
+            "totalSeconds": {
+              "type": "number",
+              "format": "double",
+              "readOnly": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserFeedbackDto": {
+          "type": "object",
+          "properties": {
+            "feedbackText": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserForCreationDto": {
+          "required": [
+            "userAccountType",
+            "userAddress",
+            "userAge",
+            "userEmail",
+            "userFullName",
+            "userGender",
+            "userInfo",
+            "userName",
+            "userNatId",
+            "userPassword"
+          ],
+          "type": "object",
+          "properties": {
+            "userName": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userPassword": {
+              "minLength": 1,
+              "type": "string",
+              "format": "password"
+            },
+            "userFullName": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userEmail": {
+              "minLength": 1,
+              "type": "string",
+              "format": "email"
+            },
+            "userNatId": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userGender": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "userAge": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "userInfo": {
+              "minLength": 1,
+              "type": "string",
+              "format": "multiline"
+            },
+            "userAddress": {
+              "minLength": 1,
+              "type": "string",
+              "format": "multiline"
+            },
+            "userAccountType": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserForReturnDto": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number",
+              "format": "double"
+            },
+            "userName": {
+              "type": "string",
+              "nullable": true
+            },
+            "userPassword": {
+              "type": "string",
+              "nullable": true
+            },
+            "userFullName": {
+              "type": "string",
+              "nullable": true
+            },
+            "userEmail": {
+              "type": "string",
+              "nullable": true
+            },
+            "userNatId": {
+              "type": "string",
+              "nullable": true
+            },
+            "userGender": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAge": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "userInfo": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAddress": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAccountType": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserForUpdateDto": {
+          "required": [
+            "userAccountType",
+            "userAddress",
+            "userAge",
+            "userEmail",
+            "userFullName",
+            "userGender",
+            "userInfo",
+            "userName",
+            "userNatId",
+            "userPassword"
+          ],
+          "type": "object",
+          "properties": {
+            "userName": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userPassword": {
+              "minLength": 1,
+              "type": "string",
+              "format": "password"
+            },
+            "userFullName": {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userEmail": {
+              "minLength": 1,
+              "type": "string",
+              "format": "email"
+            },
+            "userNatId": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "userGender": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "userAge": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "userInfo": {
+              "minLength": 1,
+              "type": "string",
+              "format": "multiline"
+            },
+            "userAddress": {
+              "minLength": 1,
+              "type": "string",
+              "format": "multiline"
+            },
+            "userAccountType": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UsersTbl": {
+          "required": [
+            "userId"
+          ],
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number",
+              "format": "double"
+            },
+            "userName": {
+              "maxLength": 50,
+              "minLength": 0,
+              "type": "string",
+              "nullable": true
+            },
+            "userPassword": {
+              "type": "string",
+              "nullable": true
+            },
+            "userFullName": {
+              "maxLength": 300,
+              "minLength": 0,
+              "type": "string",
+              "nullable": true
+            },
+            "userEmail": {
+              "maxLength": 300,
+              "minLength": 0,
+              "type": "string",
+              "format": "email",
+              "nullable": true
+            },
+            "userNatId": {
+              "maxLength": 50,
+              "minLength": 0,
+              "type": "string",
+              "nullable": true
+            },
+            "userGender": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAge": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "userInfo": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAddress": {
+              "type": "string",
+              "nullable": true
+            },
+            "userAccountType": {
+              "type": "string",
+              "nullable": true
+            },
+            "postFeedbackTbls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostFeedbackTbl"
+              },
+              "nullable": true
+            },
+            "notifications": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/NotificationTbl"
+              },
+              "nullable": true
+            },
+            "posts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostsTbl"
+              },
+              "nullable": true
+            },
+            "favoritePosts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PostFaviourateTbl"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
