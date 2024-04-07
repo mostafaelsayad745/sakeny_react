@@ -17,6 +17,7 @@ import ChatPage from '../Components/ChatComponent/ChatPage';
 import NotificationComponent from '../Components/NotificationComponent/getNotificationNew';
 import ImageList from '../Components/PicturesComponent/getPictures';
 import Header from './Header';
+import AuthenticationComponent from '../Components/SignIn&SignUp/SignIn';
 
 
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/chat" Component={ChatPage} />
             <Route path='/Notifiactions' Component={NotificationComponent} />
             <Route path='/images' Component={ImageList} />
+            <Route path='/login' Component={AuthenticationComponent}/>
           </Routes>
 
         </Router>
