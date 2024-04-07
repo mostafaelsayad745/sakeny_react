@@ -5,26 +5,24 @@ import { useParams } from 'react-router-dom';
 const NotificationComponent: React.FC = () => {
     
     useEffect(() => {
-         // Replace 'your_user_id' with the actual user ID
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl(`https://localhost:7080/notification`)
+        .build();
 
-        const connection = new signalR.HubConnectionBuilder()
-            .withUrl(`https://localhost:7080/notification`)
-            .build();
+    connection.on("ReceiveNotification", function (message ) {
+        console.log(message);
+        alert(message);
+    });
 
-       
-
-        connection.on("ReceiveNotification", function (message ) {
-            // Display the notification message
-            console.log(message);
-            alert(message);
+    connection.start()
+        .catch(function (err) {
+            return console.error(err.toString());
         });
 
-      
-        // Clean up on unmount
-        return () => {
-            connection.stop();
-        };
-    }, []);
+    return () => {
+        connection.stop();
+    };
+}, []);
 
     return (
         <div>
