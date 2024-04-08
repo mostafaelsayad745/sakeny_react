@@ -18,36 +18,37 @@ const Signup: React.FC = () => {
     userAddress: '',
     userAccountType: ''
   });
+  const [image, setImage] = useState<File | null>(null);
 
+
+  const navigate = useNavigation();
   const history = useHistory();
-  const navigation = useNavigation();
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`${config.baseURL}/api/users`, user);
-      const verificationCode = response.headers['x-verification-code'];
-      if (verificationCode) {
-        // Navigate to the verification code component
-        navigation('/verification', { verificationCode });
-      } else {
-        // Navigate to the login page
-        history.push('/login');
-      }
+      // Save the user data in local storage to use it later
+      localStorage.setItem('user', JSON.stringify(user));
+      history.push('/VerificationPage');
     } catch (error) {
-      console.error(error);
+      console.error('Error saving user data to local storage:', error);
     }
   };
 
   return (
     <div>
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form > 
         <div>
           <label htmlFor="userName">Username:</label>
           <input
@@ -118,7 +119,7 @@ const Signup: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="userInfo">Info:</label>
           <textarea
             id="userInfo"
@@ -135,7 +136,7 @@ const Signup: React.FC = () => {
             value={user.userAddress}
             onChange={handleInputChange}
           />
-        </div>
+        </div> */}
         <div>
           <label htmlFor="userAccountType">Account Type:</label>
           <input
@@ -146,7 +147,16 @@ const Signup: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit">Signup</button>
+        <div>
+          <label htmlFor="userImage">Profile Image:</label>
+          <input
+            type="file"
+            id="userImage"
+            name="userImage"
+            onChange={handleImageChange}
+          />
+        </div>
+        <button type="button" onClick={handleSubmit}>Signup</button>
       </form>
     </div>
   );

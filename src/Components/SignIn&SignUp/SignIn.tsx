@@ -26,7 +26,7 @@ const AuthenticationComponent: React.FC = () => {
 
     if (response.status === 200) {
         setToken(response.data);
-        setUserId(response.headers['UserId'] ?? ''); 
+        setUserId(response.headers['UserId'] ?? ''); // this doesn't return the header data 
     } else {
         console.log(response.data);
     }

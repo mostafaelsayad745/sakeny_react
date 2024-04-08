@@ -18,6 +18,13 @@ import NotificationComponent from '../Components/NotificationComponent/getNotifi
 import ImageList from '../Components/PicturesComponent/getPictures';
 import Header from './Header';
 import AuthenticationComponent from '../Components/SignIn&SignUp/SignIn';
+import Signup from '../Components/SignIn&SignUp/SignUp';
+import Splash1 from '../Components/SignIn&SignUp/Splash1';
+import Splash3 from '../Components/SignIn&SignUp/Splash3';
+import Splash2 from '../Components/SignIn&SignUp/Splash2';
+import Entry from '../Components/SignIn&SignUp/Entry';
+import OwnerOrTenantPage from '../Components/SignIn&SignUp/OwnerOrTenantPage';
+import VerificationPage from '../Components/SignIn&SignUp/VerificationPage';
 
 
 
@@ -30,19 +37,29 @@ function App() {
   return (
     <>
       <div className='container'>
-        <Header subtitle='Chat Application' />
-        <UsersList/>
+        {/* <Header subtitle='Chat Application' />
+        <UsersList/> */}
 
 
 
         <Router>
 
           <Routes>
-            <Route path="/" Component={SenderReceiverForm} />
+          // SignIn && SignUp
+            <Route path='/' Component={Entry}/>
+            <Route path='/login' Component={AuthenticationComponent}/>
+            <Route path='/signup' Component={Signup}/>
+            <Route path='/splash1' Component={Splash1}/>
+            <Route path='/splash2' Component={Splash2}/>
+            <Route path='/splash3' Component={Splash3}/>
+            <Route path='/OwnerOrTenantPage' Component={OwnerOrTenantPage}/>
+            <Route path='/VerificationPage' Component={VerificationPage}/> 
+
+            <Route path="/SenderReceiverForm" Component={SenderReceiverForm} />
             <Route path="/chat" Component={ChatPage} />
             <Route path='/Notifiactions' Component={NotificationComponent} />
             <Route path='/images' Component={ImageList} />
-            <Route path='/login' Component={AuthenticationComponent}/>
+           
           </Routes>
 
         </Router>
