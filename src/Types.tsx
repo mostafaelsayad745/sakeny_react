@@ -217,31 +217,54 @@ export type UserForUpdateDto = {
     userAddress: string;
     userAccountType: string;
 }
-export type PostForReturnDto = {
-    PostId: number;
-    PostDate?: string;
-    PostTime?: string;
-    PostCategory?: string;
+export type PostForSerchDto =  {
     PostTitle?: string;
-    PostBody?: string;
-    PostArea?: number;
-    PostKitchens?: number;
-    PostBedrooms?: number;
-    PostBathrooms?: number;
+    PostAddress?: string;
+    MinPrice?: number;
+    MaxPrice?: number;
+    MinArea?: number;
+    MaxArea?: number;
+    MinRooms?: number;
+    MaxRooms?: number;
+    MinBathrooms?: number;
+    MaxBathrooms?: number;
+    MinFloors?: number;
+    MaxFloors?: number;
     PostLookSea?: boolean;
     PostPetsAllow?: boolean;
-    PostCurrency?: string;
-    PostPriceAi?: number;
-    PostPriceDisplay?: number;
-    PostPriceType?: string;
-    PostAddress?: string;
-    PostCity?: string;
-    PostState?: string;
-    PostFloor?: number;
-    PostLatitude?: string;
-    PostLongitude?: string;
-    PostStatue?: boolean;
-    PostUserId: number;
+}
+export type PostFeedbackForReturnDto = {
+    postFeedId: number;
+    postFeedDate?: string;
+    postFeedTime?: TimeSpan;
+    postFeedText?: string;
+    userId?: number;
+}
+export type PostForReturnDto = {
+    postId: number;
+    postDate?: string;
+    postTime?: string;
+    postCategory?: string;
+    postTitle?: string;
+    postBody?: string;
+    postArea?: number;
+    postKitchens?: number;
+    postBedrooms?: number;
+    postBathrooms?: number;
+    postLookSea?: boolean;
+    postPetsAllow?: boolean;
+    postCurrency?: string;
+    postPriceAi?: number;
+    postPriceDisplay?: number;
+    postPriceType?: string;
+    postAddress?: string;
+    postCity?: string;
+    postState?: string;
+    postFloor?: number;
+    postLatitude?: string;
+    postLongitude?: string;
+    postStatue?: boolean;
+    postUserId: number;
    
 }
 

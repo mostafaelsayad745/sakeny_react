@@ -26,26 +26,23 @@ const ChatPage: FC = () => {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl("https://localhost:7080/chat") 
-            .build();
-
+          .withUrl("https://localhost:7080/chat") 
+          .build();
+      
+        newConnection.start()
+          .then(() => {
+            console.log('Connected!');
+      
+            newConnection.invoke('SendChatHistory', senderName, receiverName , newConnection.connectionId);
+      
+            newConnection.on('ReceiveChatHistory', messages => {
+              setChatHistory(messages);
+            });
+          })
+          .catch(e => console.error('Connection failed: ', e));
+      
         setConnection(newConnection);
-    }, []);
-    useEffect(() => {
-        if (connection) {
-            connection.start()
-                .then(() => {
-                    console.log('Connected!');
-
-                    connection.invoke('SendChatHistory', senderName, receiverName , connection.connectionId);
-
-                    connection.on('ReceiveChatHistory', messages => {
-                        setChatHistory(messages);
-                    });
-                })
-                .catch(e => console.log('Connection failed: ', e));
-        }
-    }, [connection, senderName, receiverName]);
+      }, []);
 
     useEffect(() => {
         if (connection) {

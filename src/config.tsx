@@ -1,4 +1,4 @@
 const config = {
-    baseURL :  "https://localhost:7080"
+    baseURL :  "http://sakenyapi.runasp.net"
 }
 export default config;

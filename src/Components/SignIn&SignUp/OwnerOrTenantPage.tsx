@@ -6,11 +6,13 @@ const OwnerOrTenantPage : React.FC = () => {
   return (
     <div>
       <h1>OwnerOrTenantPage</h1>
-      <button onClick={() => navigate('/signup')}>Owner</button>
-      <button onClick={() => navigate('/signup')}>Tenant</button>
+      
+      <button onClick={() => navigate('/signupowner')}>Owner</button>
+      <button onClick={() => navigate('/signuptenant')}>Tenant</button>
     </div>
   )
 }
+
 
 export default OwnerOrTenantPage
 export{};

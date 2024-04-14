@@ -18,13 +18,17 @@ import NotificationComponent from '../Components/NotificationComponent/getNotifi
 import ImageList from '../Components/PicturesComponent/getPictures';
 import Header from './Header';
 import AuthenticationComponent from '../Components/SignIn&SignUp/SignIn';
-import Signup from '../Components/SignIn&SignUp/SignUp';
+import SignUpOwner from '../Components/SignIn&SignUp/SignUpOwner';
 import Splash1 from '../Components/SignIn&SignUp/Splash1';
 import Splash3 from '../Components/SignIn&SignUp/Splash3';
 import Splash2 from '../Components/SignIn&SignUp/Splash2';
 import Entry from '../Components/SignIn&SignUp/Entry';
 import OwnerOrTenantPage from '../Components/SignIn&SignUp/OwnerOrTenantPage';
 import VerificationPage from '../Components/SignIn&SignUp/VerificationPage';
+import OwnerHomepage from '../Components/HomePage/OwnerHomePage';
+import TenantHomepage from '../Components/HomePage/TenantHomePage';
+import SignUpTenant from '../Components/SignIn&SignUp/SignUpTenant';
+import PostDetails from '../Components/PostPage/PostDetails';
 
 
 
@@ -48,12 +52,17 @@ function App() {
           // SignIn && SignUp
             <Route path='/' Component={Entry}/>
             <Route path='/login' Component={AuthenticationComponent}/>
-            <Route path='/signup' Component={Signup}/>
+            <Route path='/signupowner' Component={SignUpOwner}/>
+            <Route path='/signuptenant' Component={SignUpTenant}/>
             <Route path='/splash1' Component={Splash1}/>
             <Route path='/splash2' Component={Splash2}/>
             <Route path='/splash3' Component={Splash3}/>
             <Route path='/OwnerOrTenantPage' Component={OwnerOrTenantPage}/>
             <Route path='/VerificationPage' Component={VerificationPage}/> 
+          // home homepage 
+            <Route path="/ownerHomepage" Component={OwnerHomepage} />
+            <Route path="/tenantHomepage" Component={TenantHomepage} />
+            <Route path="/:userId/details/:postId" Component={PostDetails} />
 
             <Route path="/SenderReceiverForm" Component={SenderReceiverForm} />
             <Route path="/chat" Component={ChatPage} />

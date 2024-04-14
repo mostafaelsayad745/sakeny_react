@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import config from '../../config';
 
 const VerificationPage: React.FC = () => {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [verificationCode, setVerificationCode] = useState('');
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -19,7 +19,7 @@ const VerificationPage: React.FC = () => {
         localStorage.removeItem('user'); // Clear user data from local storage after saving
         
         // Navigate to the login page or any other page as needed
-        history.push('/login');
+        navigate('/login');
       } catch (error) {
         console.error('Error saving user data:', error);
       }

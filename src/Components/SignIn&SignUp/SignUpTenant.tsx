@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useNavigation } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserForCreationDto } from '../../Types';
 import config from '../../config';
 
-const Signup: React.FC = () => {
+const SignUpTenant: React.FC = () => {
   const [user, setUser] = useState<UserForCreationDto>({
     userName: '',
     userPassword: '',
@@ -16,14 +16,19 @@ const Signup: React.FC = () => {
     userAge: 0,
     userInfo: '',
     userAddress: '',
-    userAccountType: ''
+    userAccountType: 'Tenant'
   });
   const [image, setImage] = useState<File | null>(null);
 
 
-  const navigate = useNavigation();
-  const history = useHistory();
+  const navigate = useNavigate();
+  
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
@@ -39,7 +44,7 @@ const Signup: React.FC = () => {
     try {
       // Save the user data in local storage to use it later
       localStorage.setItem('user', JSON.stringify(user));
-      history.push('/VerificationPage');
+      navigate('/VerificationPage');
     } catch (error) {
       console.error('Error saving user data to local storage:', error);
     }
@@ -119,13 +124,13 @@ const Signup: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        {/* <div>
+         <div>
           <label htmlFor="userInfo">Info:</label>
           <textarea
             id="userInfo"
             name="userInfo"
             value={user.userInfo}
-            onChange={handleInputChange}
+            onChange={handleTextChange}
           />
         </div>
         <div>
@@ -134,19 +139,10 @@ const Signup: React.FC = () => {
             id="userAddress"
             name="userAddress"
             value={user.userAddress}
-            onChange={handleInputChange}
+            onChange={handleTextChange}
           />
-        </div> */}
-        <div>
-          <label htmlFor="userAccountType">Account Type:</label>
-          <input
-            type="text"
-            id="userAccountType"
-            name="userAccountType"
-            value={user.userAccountType}
-            onChange={handleInputChange}
-          />
-        </div>
+        </div> 
+       
         <div>
           <label htmlFor="userImage">Profile Image:</label>
           <input
@@ -158,9 +154,10 @@ const Signup: React.FC = () => {
         </div>
         <button type="button" onClick={handleSubmit}>Signup</button>
       </form>
+      <button onClick={() => navigate('/login')}>SignIn</button>
     </div>
   );
 };
 
-export default Signup;
+export default SignUpTenant;
 export {}
